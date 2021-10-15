@@ -2,7 +2,7 @@
 title: "Project Proposal"
 author: "Maris Grundy"
 date: "10/13/2021"
-output: html_document
+output: github_document
 ---
 
 ## Introduction
