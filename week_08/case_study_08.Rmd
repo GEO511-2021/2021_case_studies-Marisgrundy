@@ -1,7 +1,31 @@
 ---
 title: "Case Study 08"
-author: Your Name
-date: August 1, 2020
-output: github_document
+author: Maris Grundy
+date: October 26, 2021
+output: 
+  html_document: default
+  github_document: default
+  powerpoint_presentation: default
+  word_document: default
 ---
- 
+```{r}
+library(tidyverse)
+
+URL<- "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"
+Data<- read_table(URL, skip=57, col_names=c("year", "mean", "unc"))
+```
+
+
+```{r}
+ggplot(data=Data, aes(x=year, y=mean))+
+  geom_line()
+```
+
+```{r}
+top5 <- Data %>%
+  arrange(desc(mean))%>%
+  top_n(mean, n=5)
+
+knitr::kable(top5)
+```
+
