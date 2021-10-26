@@ -5,18 +5,12 @@ October 26, 2021
 
 ``` r
 library(tidyverse)
+library(knitr)
+library(kableExtra)
 
 URL<- "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"
 Data<- read_table(URL, skip=57, col_names=c("year", "mean", "unc"))
 ```
-
-    ## 
-    ## -- Column specification ------------------------------------------------------
-    ## cols(
-    ##   year = col_double(),
-    ##   mean = col_double(),
-    ##   unc = col_double()
-    ## )
 
 ``` r
 ggplot(data=Data, aes(x=year, y=mean))+
@@ -33,10 +27,75 @@ top5 <- Data %>%
 knitr::kable(top5)
 ```
 
-| year |   mean |  unc |
-|-----:|-------:|-----:|
-| 2020 | 414.24 | 0.12 |
-| 2019 | 411.66 | 0.12 |
-| 2018 | 408.72 | 0.12 |
-| 2017 | 406.76 | 0.12 |
-| 2016 | 404.41 | 0.12 |
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+year
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+unc
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+2020
+</td>
+<td style="text-align:right;">
+414.24
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2019
+</td>
+<td style="text-align:right;">
+411.66
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2018
+</td>
+<td style="text-align:right;">
+408.72
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2017
+</td>
+<td style="text-align:right;">
+406.76
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2016
+</td>
+<td style="text-align:right;">
+404.41
+</td>
+<td style="text-align:right;">
+0.12
+</td>
+</tr>
+</tbody>
+</table>

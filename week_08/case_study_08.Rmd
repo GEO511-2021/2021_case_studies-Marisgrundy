@@ -8,8 +8,10 @@ output:
   powerpoint_presentation: default
   word_document: default
 ---
-```{r}
+```{r, results='hide', message=FALSE, warning=FALSE}
 library(tidyverse)
+library(knitr)
+library(kableExtra)
 
 URL<- "https://gml.noaa.gov/webdata/ccgg/trends/co2/co2_annmean_mlo.txt"
 Data<- read_table(URL, skip=57, col_names=c("year", "mean", "unc"))
@@ -28,4 +30,6 @@ top5 <- Data %>%
 
 knitr::kable(top5)
 ```
+
+
 
